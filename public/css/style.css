@@ -1,0 +1,89 @@
+.row {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+.message-container {
+  margin: 0.5rem 1rem 0;
+}
+
+.message-chip {
+  height: auto;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: justify;
+  width: 100%;
+}
+
+.name-msg-date-time {
+  padding: 0.5rem 0;
+}
+
+.name {
+  color: teal;
+  font-weight: 600;
+}
+
+.date-time {
+  color: teal;
+  font-size: 12px;
+  text-align: right;
+}
+
+.joined-msg {
+  background: #e4e4e4;
+  padding: 0.2rem;
+  text-align: center;
+  color: #009688;
+  font-size: 12px;
+  margin: 0.5rem 4rem 0;
+  border-radius: 10px;
+}
+
+textarea.materialize-textarea {
+  border: 1px solid #009688;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.form-container {
+  margin: 1rem 1rem 0;
+}
+
+.form-container .col {
+  padding: 0;
+  text-align: right;
+}
+
+nav {
+  color: teal;
+}
+
+.users-info-container {
+  padding: 0rem 1rem;
+  font-size: 20px;
+}
+
+.collection {
+  margin: 0rem 0 1rem 0;
+  border-bottom: none;
+}
+
+.collection-header {
+  padding: 0px 20px;
+  font-size: 18px;
+}
+
+.collection .collection-item {
+  line-height: 2rem;
+  padding: 5px 20px;
+  margin: 0;
+  border-bottom: none;
+}
