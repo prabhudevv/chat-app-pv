@@ -5,7 +5,8 @@ const socketio = require('socket.io');
 const Filter = require('bad-words');
 const {
   generateMessage,
-  generateLocationMessage
+  generateLocationMessage,
+  generateNotification
 } = require('./utils/messages');
 const {
   addUser,
@@ -27,9 +28,6 @@ const publicDirectoryFile = path.join(__dirname, "../public");
 app.use(express.static(publicDirectoryFile));
 
 io.on('connection', (socket) => {
-  debugger;
-  console.log("New web socket connection");
-
   socket.on('join', ({ username, room }, cb) => {
     const { error, user } = addUser({ id: socket.id, username, room });
 
@@ -39,8 +37,8 @@ io.on('connection', (socket) => {
 
     socket.join(user.room);
 
-    socket.emit('message', generateMessage('Admin', 'Welcome!'));
-    socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} has joined!`));
+    socket.emit('notification', generateNotification(`Hi ${username}! Welcome to chatroom`, room));
+    socket.broadcast.to(user.room).emit('notification', generateNotification(user.username, `has joined!`));
     debugger;
     io.to(user.room).emit('roomData', {
       room: user.room,
@@ -65,7 +63,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     const user = removeUser(socket.id);
     if (user) {
-      io.to(user.room).emit('message', generateMessage('Admin', `${user.username} has left!`));
+      socket.broadcast.to(user.room).emit('notification', generateNotification(user.username, `has left!`));
       io.to(user.room).emit('roomData', {
         room: user.room,
         users: getUsersInRoom(user.room),

@@ -38,7 +38,7 @@
   font-weight: 400;
 }
 
-.joined-msg {
+#notification {
   background: #e4e4e4;
   padding: 0.2rem;
   text-align: center;

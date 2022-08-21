@@ -11,6 +11,7 @@ const $messages = document.querySelector('#messages');
 const messageTemplate = document.querySelector('#message-template').innerHTML;
 const locationTemplate = document.querySelector('#location-template').innerHTML;
 const sideBarTemplate = document.querySelector('#sidebar-template').innerHTML;
+const notificationTemplate = document.querySelector('#notification-template').innerHTML;
 
 // Options
 const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true });
@@ -33,7 +34,6 @@ const autoScroll = () => {
 }
 
 socket.on('message', (message) => {
-  console.log(message);
   const html = Mustache.render(messageTemplate, {
     username: message.username,
     message: message.text,
@@ -45,8 +45,19 @@ socket.on('message', (message) => {
   autoScroll();
 })
 
+socket.on('notification', (message) => {
+  const html = Mustache.render(notificationTemplate, {
+    username: message.username,
+    message: message.text,
+    createdAt: moment(message.createdAt).format('MMMM DD, YYYY h:mma'),
+    alpha: message.username.charAt(0).toUpperCase(),
+    name: (message.username).charAt(0).toUpperCase() + (message.username).slice(1)
+  });
+  $messages.insertAdjacentHTML('beforeend', html);
+  autoScroll();
+})
+
 socket.on('locationMessage', (message) => {
-  console.log(message);
   const html = Mustache.render(locationTemplate, {
     username: message.username,
     url: message.url,
@@ -90,8 +101,6 @@ $messageForm.addEventListener('submit', (e) => {
     if (error) {
       return console.log(error);
     }
-
-    console.log("Message was delivered!");
   });
 })
 
@@ -110,7 +119,6 @@ $locationButton.addEventListener('click', (e) => {
       longitude: position.coords.longitude
     }, () => {
       $locationButton.removeAttribute('disabled');
-      console.log("Location shared!");
     });
   })
 })
