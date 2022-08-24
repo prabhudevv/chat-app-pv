@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
     socket.join(user.room);
 
     socket.emit('notification', generateNotification(`Hi ${username}! Welcome to chatroom`, room));
-    socket.broadcast.to(user.room).emit('notification', generateNotification(user.username, `has joined!`));
+    socket.broadcast.to(user.room).emit('notification', generateNotification(user.username, ` has entered the chatroom`));
     debugger;
     io.to(user.room).emit('roomData', {
       room: user.room,
@@ -63,7 +63,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     const user = removeUser(socket.id);
     if (user) {
-      socket.broadcast.to(user.room).emit('notification', generateNotification(user.username, `has left!`));
+      socket.broadcast.to(user.room).emit('notification', generateNotification(user.username, ` has left the chatroom`));
       io.to(user.room).emit('roomData', {
         room: user.room,
         users: getUsersInRoom(user.room),

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -28,7 +28,9 @@
             </div>
           </script>
       </div>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">login</i></a>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+        <em class="material-icons">login</em>
+      </a>
     </div>
   </nav>
 
@@ -37,9 +39,11 @@
   <script id="message-template" type="text/html">
       <div class="message-container">
         <div class="chip message-chip">
-          <img src="./img/img.jpg" alt="Contact Person" />
+          
           <div class="name-msg-date-time">
-            <!-- <span class="name">{{alpha}}</span> -->
+            <div class="alpha-container">
+              <p class="alpha">{{alpha}}</p>
+            </div>
             <span class="name">{{name}}</span>
             <span class="user-message">{{message}}</span>
             <div class="date-time">{{createdAt}}</div>
@@ -59,11 +63,7 @@
         <div class="chip message-chip">
           <img src="./img/img.jpg" alt="Contact Person" />
           <div class="name-msg-date-time">
-            <!-- <span class="name">{{alpha}}</span> -->
             <span class="name">{{name}}</span>
-            <!-- <span class="user-message">
-              <a href="{{url}}" target="_blank">Click here for location</a>
-            </span> -->
             <div class="map-container">
               <iframe src="//maps.google.com/maps?q={{lat}},{{lon}}&z=15&output=embed" width="100%" height="200"></iframe>
             </div>
@@ -81,12 +81,12 @@
       </div>
       <div class="col s2">
         <button type="submit" class="btn-floating btn-medium waves-effect waves-light teal">
-          <i class="material-icons">send</i>
+          <em class="material-icons">send</em>
         </button>
       </div>
       <div class="col s2">
         <button type="submit" class="btn-floating btn-medium waves-effect waves-light teal" id="send-location">
-          <i class="material-icons">location_on</i>
+          <em class="material-icons">location_on</em>
         </button>
       </div>
     </form>

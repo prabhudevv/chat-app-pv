@@ -1,9 +1,10 @@
-const generateMessage = (username, text) => {
+const generateMessage = (username, text, alpha) => {
   debugger;
   return {
     username,
     text,
-    createdAt: new Date().getTime()
+    createdAt: new Date().getTime(),
+    alpha
   }
 }
 
@@ -16,13 +17,14 @@ const generateNotification = (username, text) => {
   }
 }
 
-const generateLocationMessage = (username, url, lat, lon) => {
+const generateLocationMessage = (username, url, lat, lon, alpha) => {
   return {
     username,
     url,
     createdAt: new Date().getTime(),
     lat,
-    lon
+    lon,
+    alpha
   }
 }
 
