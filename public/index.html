@@ -7,89 +7,50 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>Chat room</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="./css/bootstrap.min.css" rel="stylesheet" />
-  <link href="./css/mdb.min.css" rel="stylesheet" />
+  <link href="./css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
   <style>
-    html,
-    body,
-    header,
-    .view {
-      height: 100vh;
-    }
-
     body {
-      background-image: url(./img/bg-chat.svg);
-      background-color: #dfdbdb;
-      background-position: center;
+      background: #26a69a;
     }
-
-    @media (max-width: 740px) {
-
-      html,
-      body,
-      header,
-      .view {
-        height: 815px;
-      }
+    .login-form {
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     }
-
-    @media (min-width: 800px) and (max-width: 850px) {
-
-      html,
-      body,
-      header,
-      .view {
-        height: 650px;
-      }
+    .login-form div {
+      background: #fff;
     }
-
-    .card {
-      background-color: #ffffff;
-      margin-top: 30px;
+    input[type=text]:not(.browser-default):focus:not([readonly]) {
+      box-shadow: none;
     }
-
-    .btn.btn-md {
-      background-color: #6c63ff;
+    .login-form-container {
+      padding: 2rem;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <section class="view intro-2">
-      <div class="mask h-100 d-flex justify-content-center align-items-center">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
-              <div class="card">
-                <div class="card-body">
-                  <form action="/chat.html">
-                    <div class="md-form">
-                      <input type="text" name="username" required autocomplete="off" class="form-control" />
-                      <label for="orangeForm-name">Name</label>
-                    </div>
-
-                    <div class="md-form">
-                      <input type="text" name="room" required autocomplete="off" class="form-control" />
-                      <label for="orangeForm-pass">Room ID</label>
-                    </div>
-
-                    <div class="text-center">
-                      <button class="btn btn-md">Join</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </header>
+  <form action="/chat.html">
+    <div class="login-form">
+      <div class="login-form-container">
+    <div class="md-form">
+      <label for="orangeForm-name">Name</label>
+      <input type="text" name="username" required autocomplete="off" class="form-control"
+        placeholder="Enter Username" />
+    </div>
+    <div class="md-form">
+      <label for="orangeForm-pass">Room ID</label>
+      <input type="text" name="room" required autocomplete="off" class="form-control" placeholder="Enter Room ID" />
+    </div>
+    <div class="text-center">
+      <button class="btn btn-md">Join</button>
+    </div>
+  </div>
+</div>
+  </form>
   <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="./js/mdb.min.js"></script>
 </body>
 
 </html>
