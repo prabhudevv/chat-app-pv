@@ -79,7 +79,7 @@ socket.on('roomData', ({ users }) => {
     name
   });
   document.querySelector('#nav-mobile').innerHTML = html;
-  $('#share-room-id').attr('href', `http://localhost:3000/?room=${room}`);
+  $('#share-room-id').attr('href', `whatsapp://send?text=http://localhost:3000/?room=${room}`);
 })
 
 $messageForm.addEventListener('submit', (e) => {
