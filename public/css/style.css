@@ -2,6 +2,11 @@
   margin: 0;
 }
 
+.sidenav-trigger-right {
+  float: right;
+  margin: 0 18px;
+}
+
 .container {
   width: 100%;
 }
@@ -110,6 +115,7 @@ img {
   margin: 0;
 }
 
-.send-icon, .location-icon {
+.send-icon,
+.location-icon {
   margin-top: 8px
 }

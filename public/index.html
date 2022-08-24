@@ -8,23 +8,26 @@
   <title>Chat room</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="./css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
-
   <style>
     body {
       background: #26a69a;
     }
+
     .login-form {
       display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
+
     .login-form div {
       background: #fff;
     }
+
     input[type=text]:not(.browser-default):focus:not([readonly]) {
       box-shadow: none;
     }
+
     .login-form-container {
       padding: 2rem;
     }
@@ -35,22 +38,24 @@
   <form action="/chat.html">
     <div class="login-form">
       <div class="login-form-container">
-    <div class="md-form">
-      <label for="orangeForm-name">Name</label>
-      <input type="text" name="username" required autocomplete="off" class="form-control"
-        placeholder="Enter Username" />
+        <div class="md-form">
+          <label for="orangeForm-name">Name</label>
+          <input type="text" name="username" required autocomplete="off" class="form-control"
+            placeholder="Enter Your Name" maxlength="20" pattern="^[A-Za-z ]+$" title="Please enter only alphabets" />
+        </div>
+        <div class="md-form">
+          <label for="orangeForm-pass">Room ID</label>
+          <input id="room-id" type="text" name="room" required autocomplete="off" class="form-control"
+            placeholder="Enter Room ID" />
+        </div>
+        <div class="text-center">
+          <button class="btn btn-md">Join</button>
+        </div>
+      </div>
     </div>
-    <div class="md-form">
-      <label for="orangeForm-pass">Room ID</label>
-      <input type="text" name="room" required autocomplete="off" class="form-control" placeholder="Enter Room ID" />
-    </div>
-    <div class="text-center">
-      <button class="btn btn-md">Join</button>
-    </div>
-  </div>
-</div>
   </form>
   <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/script.js"></script>
 </body>
 
 </html>

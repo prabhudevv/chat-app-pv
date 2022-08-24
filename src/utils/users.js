@@ -12,13 +12,13 @@ const addUser = ({ id, username, room }) => {
     }
   }
 
-  const existingUser = users.find((user) => {
-    return user.room === room && user.username === username;
+  const existingUser = users.find((data) => {
+    return data.room === room && data.username === username;
   })
 
   if (existingUser) {
     return {
-      error: 'Username is alreay in use'
+      error: 'Username is already in use'
     }
   }
 
