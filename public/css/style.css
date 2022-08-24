@@ -109,3 +109,7 @@ img {
 .alpha {
   margin: 0;
 }
+
+.send-icon, .location-icon {
+  margin-top: 8px
+}
